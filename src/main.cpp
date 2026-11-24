@@ -10,6 +10,9 @@ using namespace std;
     int buscarElem(const int arrBuscar[], int tam, int buscado);
     int contarElem(const int arrContarElem[], int tam, int buscado);
     int sumarColumna(const int matriz[][max_col], int fila, int columna);
+    void minimoValColumna(int const matriz[][max_col], int fila, int columna, int minColumna[]);
+    void ordenarDesc(int arreglo[], int tam);
+    bool compararCadenas(const char carac1[], const char carac2[]);
 
 //STRUCTS  
 struct Ejercicio{
@@ -107,6 +110,58 @@ void ej27(){
     }
 }
 
+//EJ - 29
+void ej29(){
+    int rellenar[4][5] = {
+        {3, 2, 5, 7, 0},
+        {3, 5, 1, 2, 3},
+        {5, 6, 0, 7, 4},
+        {5, 1, 1, 4, 92}
+    };
+    int resultado[5];
+    cout << "Ejercicio 29." << endl;
+    cout << "Menor elemento por columna." << endl;
+
+    minimoValColumna(rellenar, 4, 5, resultado);
+    for (int j = 0; j < 5; j++){
+        cout << "Columna " << j + 1 << ": " << resultado[j] << endl;
+    }
+}
+
+//EJ - 34
+void ej34(){
+    int rellenar[] = {4, 2, 9, -9, 8};
+    int resultado[5];
+    cout << "Ejercicio 34." << endl;
+    cout << "Ordenar descendente (Seleccion)." << endl;
+
+    cout << "Elementos antes: ";
+    for (int i = 0; i < 5; i++){
+        cout << rellenar[i] << " ";
+        resultado[i] = rellenar[i];
+    }
+    ordenarDesc(resultado, 5);
+    cout << endl << "Elementos ordenados de forma descendente: ";
+
+    for (int i = 0; i < 5; i++){
+        cout << resultado[i] << " ";
+    }
+}
+
+//EJ - 39
+void ej39(){
+    char cad1[] = "UNAH", cad2[] = "UNAH";
+    cout << "Ejercicio 39." << endl;
+    cout << "Comparar dos cadenas." << endl;
+    cout << "Cadena N. 1 a comparar: " << cad1 << ". " << "Cadena N. 2: " << cad2 << endl;
+    if (compararCadenas(cad1, cad2)){
+        cout << "Las cadenas son iguales." << endl;
+    }
+    else{
+        cout << "Las cadenas son diferentes." << endl;
+    }
+}
+
 int main() { 
 
     const Ejercicio ejercicios[] = {
@@ -116,7 +171,10 @@ int main() {
         {19, ej19},
         {21, ej21},
         {22, ej22},
-        {27, ej27}
+        {27, ej27},
+        {29, ej29},
+        {34, ej34},
+        {39, ej39}
     };
     const int total = size(ejercicios);
     

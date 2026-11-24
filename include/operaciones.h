@@ -64,3 +64,45 @@ int sumarColumna(const int matriz[][max_col], int fila, int columna){
     }
     return suma;
 };
+
+//DERECK AMADOR - EJ 29
+void minimoValColumna(int const matriz[][max_col], int fila, int columna, int minColumna[]){
+    for (int j = 0; j < columna; j++){
+        int valMinimo = matriz[0][j];
+        for (int i = 1; i < fila; i++){
+            if (matriz[i][j] < valMinimo){
+                valMinimo = matriz[i][j];
+            }
+        }
+        minColumna[j] = valMinimo;
+    }
+};
+
+//DERECK AMADOR - EJ 34
+void ordenarDesc(int arreglo[], int tam){
+    for (int i = 0; i < tam; i++){
+        int posMayor = i;
+        for (int j = i + 1; j < tam; j++){
+            if (arreglo[j] > arreglo[posMayor]){
+                posMayor = j;
+            }
+        }
+        if (posMayor != i){
+            int temporal = arreglo[i];
+            arreglo[i] = arreglo[posMayor];
+            arreglo[posMayor] = temporal;
+        }
+    }
+};
+
+//DERECK AMADOR - EJ 39
+bool compararCadenas(const char carac1[], const char carac2[]){
+    int i{0};
+    while (carac1[i] != '\0' && carac2[i] != '\0'){
+        if (carac1[i] != carac2[i]){
+            return false;
+        }
+        i++;
+    }
+    return carac1[i] == carac2[i];
+};

@@ -1,4 +1,4 @@
-// EJERCICIO 29 - DERECK AMADOR - 20241031358
+// EJERCICIO 34 - DERECK AMADOR - 20241031358
 //Ordenar descendente (Selección): Método de selección para ordenar de mayor a menor.
 
 void ordenarDesc(int arreglo[], int tam){

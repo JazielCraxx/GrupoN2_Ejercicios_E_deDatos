@@ -1,4 +1,4 @@
-// EJERCICIO 29 - DERECK AMADOR - 20241031358
+// EJERCICIO 39 - DERECK AMADOR - 20241031358
 //Comparar dos cadenas: Determinar si dos cadenas son iguales (sin usar strcmp). 
 
 bool compararCadenas(const char carac1[], const char carac2[]){

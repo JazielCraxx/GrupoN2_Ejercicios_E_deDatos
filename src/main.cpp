@@ -13,6 +13,8 @@ using namespace std;
     void minimoValColumna(int const matriz[][max_col], int fila, int columna, int minColumna[]);
     void ordenarDesc(int arreglo[], int tam);
     bool compararCadenas(const char carac1[], const char carac2[]);
+    void invertirCadena(const char cadenaOriginal[], char cadenaInvertida[]);
+    bool verificarPalindromo(const char cadena[]);
 
 //STRUCTS  
 struct Ejercicio{
@@ -162,6 +164,38 @@ void ej39(){
     }
 }
 
+//EJ - 42
+void ej42(){
+    char cadena[] = "hola me llamo Dereck", cadinv[100];
+    cout << "Ejercicio 42." << endl;
+    cout << "Invertir cadena." << endl;
+    if (cadena[0] == '\0' ){
+        cout << "La cadena esta vacia, intente de nuevo ingresando un texto.    " << endl;
+    } else { 
+        invertirCadena(cadena, cadinv);
+        cout << "Original : " << cadena << endl;
+        cout << "Invertida: " << cadinv << endl;
+    }
+    
+}
+
+//EJ - 45
+void ej45(){
+    char texto[] = "Abba";
+    cout << "Ejercicio 45." << endl;
+    cout << "Verificar palindromo." << endl;
+    if (texto[0] == '\0'){
+        cout << "Error, no hay texto. Intente de nuevo ingresando una palabra." << endl;
+    } else {
+        cout << "Palabra a verificar si es palindroma: " << texto << endl;
+        bool resultado = verificarPalindromo(texto);
+        if (resultado){
+            cout << "La palabra es palindroma." << endl;
+        } else {
+            cout << "La palabra NO es palindroma." << endl;
+        }
+    }
+}
 int main() { 
 
     const Ejercicio ejercicios[] = {
@@ -174,7 +208,9 @@ int main() {
         {27, ej27},
         {29, ej29},
         {34, ej34},
-        {39, ej39}
+        {39, ej39},
+        {42, ej42},
+        {45, ej45}
     };
     const int total = size(ejercicios);
     

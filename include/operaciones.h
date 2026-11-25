@@ -106,3 +106,33 @@ bool compararCadenas(const char carac1[], const char carac2[]){
     }
     return carac1[i] == carac2[i];
 };
+
+//DERECK AMADOR - EJ 42
+void invertirCadena(const char cadenaOriginal[], char cadenaInvertida[]){
+    int longitud{0};
+    while (cadenaOriginal[longitud] != '\0'){
+        longitud++;
+    }
+    for (int i = 0; i < longitud; i++){
+        cadenaInvertida[i] = cadenaOriginal[longitud - 1 - i];
+    }
+    cadenaInvertida[longitud] = '\0';
+};
+
+//DERECK AMADOR - EJ 45
+bool verificarPalindromo(const char cadena[]){
+    int longitud{0};
+    while (cadena[longitud] != '\0'){
+        longitud++;
+    }
+    int inicio{0}, final = longitud -1;
+
+    while (inicio < final){
+        if (cadena[inicio] != cadena[final]){
+            return false;
+        }
+        inicio++;
+        final--; 
+    } 
+    return true;
+};

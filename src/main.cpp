@@ -18,6 +18,7 @@ using namespace std;
     double promedioNotas(const double notas[], int cantidad);
     int libroFunc(const Libros listaLibros[], int cantidadLibros, const char libroBuscado[]);
     Fraccion sumaD2Fracciones(const Fraccion& fracc1, const Fraccion& fracc2);
+    bool expresionBalanc(const char expresion[]);
 
 //STRUCTS  
 struct Ejercicio{
@@ -35,11 +36,6 @@ Libros listaLibros[maxLibros] ={
     {"El Principito", "Antoine de Saint-Exupéry", 1943},
     {"El vampiro", "Froylán Turcios", 1910}
 };
-
-
-//PUNTEROS
-
-//NODOS 
 
 //VOID EJERCICIOS
 //EJ 06
@@ -274,6 +270,30 @@ void ej61(){
   mostrarMenuPila();
 }
 
+//EJ - 66
+void ej66(){
+    char expresion[] = "()";
+
+    cout << "Ejercicio 66." << endl;
+    cout << "Expresión balanceada." << endl;
+
+    if (expresionBalanc(expresion)) {
+        cout << "La expresion esta balanceada." << endl;
+    } else {
+        cout << "La expresion no esta balanceada." << endl;
+    }
+}
+
+//EJ 70
+void ej70(){
+    mostrarMenuCola();
+}
+
+//EJ 74
+void ej74(){
+    mostrarMenuCola();
+}
+
 int main() { 
 
     const Ejercicio ejercicios[] = {
@@ -292,7 +312,10 @@ int main() {
         {49, ej49},
         {55, ej55},
         {58, ej58},
-        {61, ej61}
+        {61, ej61},
+        {66, ej66},
+        {70, ej70}, 
+        {74, ej74}
     };
     const int total = size(ejercicios);
     

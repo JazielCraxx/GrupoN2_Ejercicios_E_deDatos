@@ -15,12 +15,27 @@ using namespace std;
     bool compararCadenas(const char carac1[], const char carac2[]);
     void invertirCadena(const char cadenaOriginal[], char cadenaInvertida[]);
     bool verificarPalindromo(const char cadena[]);
+    double promedioNotas(const double notas[], int cantidad);
+    int libroFunc(const Libros listaLibros[], int cantidadLibros, const char libroBuscado[]);
+    Fraccion sumaD2Fracciones(const Fraccion& fracc1, const Fraccion& fracc2);
 
 //STRUCTS  
 struct Ejercicio{
     int num;
     void (*ejecutar)();
 };
+
+//INICIALIZACION DE STRUCTS
+//EJ 55
+const int maxLibros{5};
+Libros listaLibros[maxLibros] ={
+    {"Prision Verde", "Ramón Amaya Amador", 1950},
+    {"Blanca Olmedo", "Lucila Gamero de Medina", 1908},
+    {"Don Quijote de la Mancha", "Miguel de Cervantes", 1605 },
+    {"El Principito", "Antoine de Saint-Exupéry", 1943},
+    {"El vampiro", "Froylán Turcios", 1910}
+};
+
 
 //PUNTEROS
 
@@ -196,6 +211,69 @@ void ej45(){
         }
     }
 }
+
+//EJ - 49
+void ej49(){
+    int cantNotas{4};
+    double rellenar[] = {83.5, 73.6, 100, 89.92};
+    cout << "Ejercicio 49." << endl;
+    cout << "Calcular promedio de notas." << endl;
+    if (cantNotas <= 0){
+        cout << "Error, cantidad de notas inválida. Intente de nuevo." << endl;
+        return;
+    } else {
+        for (int notas = 0; notas < cantNotas; notas++){
+            cout << "Nota " << notas + 1 << ". Nota final: " << rellenar[notas] << endl;
+        }
+        double promedio = promedioNotas(rellenar, cantNotas);
+        cout << "Promedio del estudiante: " << promedio << endl;
+    }
+}
+
+//EJ - 55
+void ej55(){
+    char libroBuscado[100];
+    cout << "Ejercicio 55." << endl;
+    cout << "Buscar libro por título." << endl;
+    cout << "Ingrese el titulo del libro a buscar: ";
+    cin.ignore(1000, '\n');
+    cin.getline(libroBuscado, 100);
+
+    if (libroBuscado[0] == '\0') {
+        cout << "Error, debe ingresar el titulo del libro para buscar. Intente de nuevo." << endl;
+    } else {
+        int indice = libroFunc(listaLibros, maxLibros, libroBuscado);
+        if (indice != -1) {
+            cout << "\nLibro encontrado en el indice [" << indice << "]:" << endl;
+            cout << "Titulo: " << listaLibros[indice].tituloLibro << endl;
+            cout << "Autor : " << listaLibros[indice].autor << endl;
+            cout << "Año  : " << listaLibros[indice].anio << endl;
+        } else {
+           cout << "\nEl libro \"" << libroBuscado << "\" no se encuentra disponible en los registros." << endl;
+        }
+    }
+}
+
+//EJ - 58
+void ej58(){
+    Fraccion f1 = {1, 2};
+    Fraccion f2 = {4, 3};
+    cout << "Ejercicio 58." << endl;
+    cout << "Sumar dos fracciones." << endl;
+
+    if (f1.denominador == 0 || f2.denominador == 0){ 
+        cout << "Error, el denominador no puede ser 0. Intente de nuevo."; 
+    } else {
+        Fraccion total = sumaD2Fracciones(f1, f2);
+        cout << "Resultado: " << total.numerador << "/" << total.denominador << endl;
+    }
+}
+
+//EJ - 61
+void ej61(){
+  mostrarMenuPila();
+}
+
 int main() { 
 
     const Ejercicio ejercicios[] = {
@@ -210,7 +288,11 @@ int main() {
         {34, ej34},
         {39, ej39},
         {42, ej42},
-        {45, ej45}
+        {45, ej45},
+        {49, ej49},
+        {55, ej55},
+        {58, ej58},
+        {61, ej61}
     };
     const int total = size(ejercicios);
     
